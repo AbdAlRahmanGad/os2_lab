@@ -13,12 +13,12 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v3
 
-    - name: Build Docker Image
-      run: docker build -t taskos:latest .
-
     - name: Log in to Docker Hub
       run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
 
+    - name: Build Docker Image
+      run: docker build -t ${{ secrets.DOCKER_USERNAME }}/taskos:latest .
+
     - name: Push Docker Image
-      run: docker push taskos:latest
+      run: docker push ${{ secrets.DOCKER_USERNAME }}/taskos:latest
 
