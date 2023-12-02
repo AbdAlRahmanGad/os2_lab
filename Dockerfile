@@ -1,2 +1,3 @@
 FROM alpine
-CMD echo aaaaaaaa
+COPY task.sh .
+CMD bash task.sh
